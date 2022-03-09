@@ -12,10 +12,24 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignItems: 'center',
   },
+  btnOutline: {
+    backgroundColor: 'white',
+    borderColor: Colors.secondaryColor,
+    borderWidth: 2,
+    color: Colors.secondaryColor,
+  },
   text: {
     ...ProximaNovaSemiBold,
     fontSize: 16,
     color: 'white',
+  },
+  btnOutlineText: {
+    ...ProximaNovaSemiBold,
+    fontSize: 16,
+    color: Colors.secondaryColor,
+  },
+  btnDisabled: {
+    backgroundColor: Colors.gray200,
   },
 });
 

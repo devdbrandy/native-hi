@@ -1,17 +1,44 @@
 import React from 'react';
-import {GestureResponderEvent, Text, TouchableOpacity} from 'react-native';
+import {
+  ActivityIndicator,
+  GestureResponderEvent,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 
 import styles from './styles';
 
-interface ICustomButtonProps {
+interface CustomButtonProps {
   title: string;
   onPress: (event: GestureResponderEvent) => void;
+  type?: 'default' | 'outline';
+  isDisabled?: boolean;
+  isLoading?: boolean;
 }
 
-const CustomButton: React.FC<ICustomButtonProps> = ({title, onPress}) => {
+const CustomButton: React.FC<CustomButtonProps> = ({
+  title,
+  onPress,
+  type = 'default',
+  isDisabled,
+  isLoading,
+}) => {
+  const textStyle = type === 'outline' ? styles.btnOutlineText : styles.text;
+
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Text style={styles.text}>{title}</Text>
+    <TouchableOpacity
+      style={[
+        styles.button,
+        type === 'outline' ? styles.btnOutline : {},
+        isDisabled ? styles.btnDisabled : {},
+      ]}
+      onPress={onPress}
+      disabled={isDisabled}>
+      {!isLoading ? (
+        <Text style={textStyle}>{title}</Text>
+      ) : (
+        <ActivityIndicator animating={isLoading} />
+      )}
     </TouchableOpacity>
   );
 };
