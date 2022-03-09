@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: Colors.darkPurple,
   },
-  calendarText: {
+  dateText: {
     color: Colors.darkPurple,
     ...Platform.select({
       ios: {

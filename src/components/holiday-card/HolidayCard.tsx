@@ -24,8 +24,10 @@ const HolidayCard: React.FC<HolidayCardProp> = ({holiday}) => {
       />
 
       <View style={styles.textWrapper}>
-        <Text style={styles.titleText}>{holiday.name}</Text>
-        <Text style={styles.calendarText}>
+        <Text style={styles.titleText} testID="title">
+          {holiday.name}
+        </Text>
+        <Text style={styles.dateText} testID="date">
           {format(new Date(holiday.date), 'dd MMMM Y')}
         </Text>
       </View>

@@ -8,7 +8,7 @@ import {
 
 import styles from './styles';
 
-interface CustomButtonProps {
+export interface CustomButtonProps {
   title: string;
   onPress: (event: GestureResponderEvent) => void;
   type?: 'default' | 'outline';
@@ -33,9 +33,12 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         isDisabled ? styles.btnDisabled : {},
       ]}
       onPress={onPress}
-      disabled={isDisabled}>
+      disabled={isDisabled}
+      testID="btn">
       {!isLoading ? (
-        <Text style={textStyle}>{title}</Text>
+        <Text style={textStyle} testID="btn-text">
+          {title}
+        </Text>
       ) : (
         <ActivityIndicator animating={isLoading} />
       )}

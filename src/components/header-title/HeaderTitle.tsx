@@ -24,8 +24,10 @@ const HeaderTitle: React.FC<HeaderProp> = ({title}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{title}</Text>
-      <Pressable onPress={signOut}>
+      <Text style={styles.text} testID="title">
+        {title}
+      </Text>
+      <Pressable onPress={signOut} testID="logout-btn">
         <Icon name="sign-out" size={20} color={Colors.gray300} />
       </Pressable>
     </View>

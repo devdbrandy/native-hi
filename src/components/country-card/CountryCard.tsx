@@ -8,17 +8,22 @@ import Colors from '@holie/theme/colors';
 
 Icon.loadFont();
 
-interface HolidayCardProp {
+export interface HolidayCardProp {
   country: ICountry;
   onPress: (name: string) => void;
 }
 
 const CountryCard: React.FC<HolidayCardProp> = ({country, onPress}) => {
   return (
-    <TouchableOpacity onPress={() => onPress(country.name)}>
+    <TouchableOpacity onPress={() => onPress(country.name)} testID="card-btn">
       <View style={styles.card}>
-        <Text style={styles.text}>{country.name}</Text>
-        <Text style={styles.text}> - {country.code}</Text>
+        <Text style={styles.text} testID="country-name">
+          {country.name}
+        </Text>
+        <Text style={styles.text} testID="country-code">
+          {' '}
+          - {country.code}
+        </Text>
       </View>
     </TouchableOpacity>
   );
